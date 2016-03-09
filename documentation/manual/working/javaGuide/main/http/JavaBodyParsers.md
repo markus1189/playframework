@@ -32,7 +32,7 @@ The default body parser, for performance reasons, won't attempt to parse the bod
 
 ### Choosing an explicit body parser
 
-If you want to explicitly select a body parser, this can be done using the [`@BodyParser.Of`](api/java/play/mvc/BodyParser.Of.html) annotation, for example:
+If you want to explicitly select a body parser, this can be done by using the [`@BodyParser.Of`](api/java/play/mvc/BodyParser.Of.html) annotation, for example:
 
 @[particular-body-parser](code/javaguide/http/JavaBodyParsers.java)
 
@@ -59,7 +59,7 @@ Most of the built in body parsers buffer the body in memory, and some buffer it 
 The memory buffer limit is configured using `play.http.parser.maxMemoryBuffer`, and defaults to 100KB, while the disk buffer limit is configured using `play.http.parser.maxDiskBuffer`, and defaults to 10MB.  These can both be configured in `application.conf`, for example, to increase the memory buffer limit to 256KB:
 
     play.http.parser.maxMemoryBuffer = 256kb
-    
+
 You can also limit the amount of memory used on a per action basis by writing a custom body parser, see [below](#Writing-a-custom-max-length-body-parser) for details.
 
 ## Writing a custom body parser

@@ -19,7 +19,7 @@ First we see that there is a generic type `A`, and then that an action must defi
 
 The `A` type is the type of the request body. We can use any Scala type as the request body, for example `String`, `NodeSeq`, `Array[Byte]`, `JsonValue`, or `java.io.File`, as long as we have a body parser able to process it.
 
-To summarize, an `Action[A]` uses a `BodyParser[A]` to retrieve a value of type `A` from the HTTP request, and to build a `Request[A]` object that is passed to the action code. 
+To summarize, an `Action[A]` uses a `BodyParser[A]` to retrieve a value of type `A` from the HTTP request, and to build a `Request[A]` object that is passed to the action code.
 
 ## Using the built in body parsers
 
@@ -46,7 +46,7 @@ The default body parser, for performance reasons, won't attempt to parse the bod
 
 ## Choosing an explicit body parser
 
-If you want to explicitly select a body parser, this can by passing a body parser to the `Action` [`apply`](api/scala/play/api/mvc/ActionBuilder.html#apply[A]\(bodyParser:play.api.mvc.BodyParser[A]\)\(block:R[A]=%3Eplay.api.mvc.Result\):play.api.mvc.Action[A]) or [`async`](api/scala/play/api/mvc/ActionBuilder.html#async[A]\(bodyParser:play.api.mvc.BodyParser[A]\)\(block:R[A]=%3Escala.concurrent.Future[play.api.mvc.Result]\):play.api.mvc.Action[A]) method.
+If you want to explicitly select a body parser, this can be done by passing a body parser to the `Action` [`apply`](api/scala/play/api/mvc/ActionBuilder.html#apply[A]\(bodyParser:play.api.mvc.BodyParser[A]\)\(block:R[A]=%3Eplay.api.mvc.Result\):play.api.mvc.Action[A]) or [`async`](api/scala/play/api/mvc/ActionBuilder.html#async[A]\(bodyParser:play.api.mvc.BodyParser[A]\)\(block:R[A]=%3Escala.concurrent.Future[play.api.mvc.Result]\):play.api.mvc.Action[A]) method.
 
 Play provides a number of body parsers out of the box, this is made available through the [`BodyParsers.parse`](api/scala/play/api/mvc/BodyParsers$parse$.html) object, which is conveniently pulled in by the [`Controller`](api/scala/play/api/mvc/Controller.html) trait.
 
