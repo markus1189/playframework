@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2009-2016 Lightbend Inc. <https://www.lightbend.com>
  */
@@ -108,10 +107,11 @@ class ScalaActionsCompositionSpec extends Specification with Controller {
       //#actions-def-wrapping
       import play.api.mvc._
 
-      def logging[A](action: Action[A])= Action.async(action.parser) { request =>
-        Logger.info("Calling action")
-        action(request)
-      }
+      def logging[A](action: Action[A]): Action[A] =
+        Action.async(action.parser) { request =>
+          Logger.info("Calling action")
+          action(request)
+        }
       //#actions-def-wrapping
 
       val request = FakeRequest().withTextBody("hello with the parse")
