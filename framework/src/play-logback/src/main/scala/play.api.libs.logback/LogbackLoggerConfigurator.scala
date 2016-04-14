@@ -13,6 +13,9 @@ import org.slf4j.LoggerFactory
 import org.slf4j.bridge._
 import org.slf4j.impl.StaticLoggerBinder
 import play.api._
+import scala.concurrent.Await
+import scala.concurrent.duration._
+import scala.concurrent.Future
 
 class LogbackLoggerConfigurator extends LoggerConfigurator {
 
@@ -74,7 +77,7 @@ class LogbackLoggerConfigurator extends LoggerConfigurator {
 
     // Configure logback
 
-    val ctx = StaticLoggerBinder.getSingleton.getLoggerFactory.asInstanceOf[LoggerContext]
+    val ctx = Await.result(Future.successful(StaticLoggerBinder.getSingleton.getLoggerFactory.asInstanceOf[LoggerContext]), 1.second)
     val configurator = new JoranConfigurator
     configurator.setContext(ctx)
     ctx.reset()
